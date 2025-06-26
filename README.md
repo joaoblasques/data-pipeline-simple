@@ -1,4 +1,4 @@
-# Containerization and Infrastructure as Code
+# Simple Data Pipeline. Concepts and Implementation
 
 ### Table of contents
 
@@ -318,11 +318,12 @@ We will use data from the NYC TLC Trip Record Data website. Specifically, we wil
 
 **2.**  Create an ingest_data.py file that reads the csv file and generates the schema for the Postgres database:
 
-Install Pandas and SQLalchemy with:
+Install Pandas and SQLalchemy with (don't forget to have your venv activated):
 
 ```
 pip install pandas
 pip install sqlalchemy
+pip install psycopg2-binary
 ```
 
 Open Vs code and write the following code in ingest_data.py:
@@ -341,7 +342,8 @@ engine = create_engine('postgresql://root:root@localhost:5433/ny_taxi')
 print(pd.io.sql.get_schema(df, name='yellow_taxi_data', con=engine))
 ```
 
-**pandas** is used for data manipulation and **sqlalchemy** provides tools for database interaction, including creating connections to databases.
+**pandas** is used for data manipulation and **sqlalchemy** provides tools for database interaction, including creating connections to databases. The **psycopg2** library is a popular open-source PostgreSQL database adapter for the Python programming language.
+
 
 The code reads the first 100 rows of yellow_tripdata_2021-01.csv into a Pandas DataFrame called df. The columns tpep_pickup_datetime and tpep_dropoff_datetime in the DataFrame are converted from string format to Pandas datetime objects for easier time-based operations.
 
@@ -822,13 +824,13 @@ We will now create a project and a service account, and we will download the aut
 
 From the GCP Dashboard, click on the drop down menu next to the Google Cloud Platform title to show the project list and click on New project.
 
-Give the project a name. We will use "zoomcamp-airflow" in this example.
+Give the project a name. We will use "ny-taxi" in this example.
 
 **3:** Setup a service account for this project and download the JSON authentication key files.
 
 IAM & Admin > Service accounts > Create service account
 
-Provide a service account name. We will use "zoomcamp-airflow-service". Leave all other fields with the default values. Click on Create and continue.
+Provide a service account name. We will use "ny-taxi-service". Leave all other fields with the default values. Click on Create and continue.
 
 Grant the Viewer role (Basic > Viewer) to the service account and click on Continue. There is no need to grant users access to this service account at the moment. Click on Done.
 
@@ -854,10 +856,10 @@ gcloud --version
 
 **5:** Set the environment variable to point to the auth keys
 
-In your terminal run(adjust with your path):
+In your terminal run(adjust with your path ... and remember to add this file to .gitignore so you are not shipping credentials to github ...):
 
 ```
-export GOOGLE_APPLICATION_CREDENTIALS=/mnt/c/Users/nacho/Desktop/data-engineering-zoomcamp/google_keys/zoomcamp-airflow-444903-33738e1bcf7e.json
+export GOOGLE_APPLICATION_CREDENTIALS=$PWD/ny-taxi-service-key.json
 ```
 
 Refresh the token and verify the authentication with the GCP SDK:

@@ -2,7 +2,7 @@
 FROM python:3.9.1
 
 # set up our image by installing prerequisites; pandas in this case
-RUN pip install pandas
+RUN pip install pandas sqlalchemy psycopg2 requests
 
 # set up the working directory inside the container
 WORKDIR /app

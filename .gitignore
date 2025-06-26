@@ -1,7 +1,14 @@
+# Virtual Environment
 venv/
+.envrc
+
+# Data
 ny_taxi_postgres_data/
 data_pgadmin/
 yellow_tripdata_2021-01.csv
+
+# Google Cloud Service Keys
+ny-taxi-service-keys.json
 
 # Large output files
 output.csv
@@ -13,3 +20,6 @@ output.csv.gz
 terraform.tfstate
 terraform.tfstate.backup
 *.tfvars
+
+
+ny-taxi-service-key.json
