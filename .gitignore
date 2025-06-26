@@ -1,0 +1,15 @@
+venv/
+ny_taxi_postgres_data/
+data_pgadmin/
+yellow_tripdata_2021-01.csv
+
+# Large output files
+output.csv
+output.csv.gz
+
+# Terraform
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
