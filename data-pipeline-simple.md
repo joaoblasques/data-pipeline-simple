@@ -1,6 +1,10 @@
-# Repository Summary
+# SIMPLE DATA PIPELINE
 
-This repository provides a comprehensive, hands-on guide to building a simple data engineering pipeline using containerization (Docker), orchestration (Docker Compose), and Infrastructure as Code (Terraform), with a focus on ingesting and processing NYC taxi data.
+## Project Overview
+
+This [repository](https://github.com/joaoblasques/data-pipeline-simple) provides a comprehensive, step-by-step guide to building a simple data engineering pipeline using containerization (Docker), orchestration (Docker Compose), and Infrastructure as Code (Terraform), with a focus on ingesting and processing NYC taxi data. The project is hands-on and includes conceptual explanations, infrastructure setup, and several example pipeline flows.
+
+This project is a practical template for data engineers to learn and implement containerized data pipelines, local and cloud database management, and automated cloud infrastructure provisioning using modern tools like Docker, Docker Compose, and Terraform. It is especially useful for those looking to understand the end-to-end workflow from local prototyping to cloud deployment in a reproducible, automated way.
 
 ## Key Features
 
@@ -43,8 +47,3 @@ This repository provides a comprehensive, hands-on guide to building a simple da
 
 4. **Cloud Deployment**:  
    - Use Terraform scripts to provision cloud resources (storage, data warehouse) on GCP for production-scale data engineering.
-
----
-
-**In summary:**  
-This repo is a practical template for data engineers to learn and implement containerized data pipelines, local and cloud database management, and automated cloud infrastructure provisioning using modern tools like Docker, Docker Compose, and Terraform. It is especially useful for those looking to understand the end-to-end workflow from local prototyping to cloud deployment in a reproducible, automated way. 
